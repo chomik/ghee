@@ -1,1 +1,1 @@
-# google-chat-echo
+# Ghee echoes to Google Hangouts Chat easly

@@ -5,13 +5,13 @@ import json
 from urllib.parse import urlparse
 
 
-class Sender:
+class Ghee:
     def __init__(self, webhook_url):
         self.headers = {'Content-type': 'application/json; charset=UTF-8'}
         self.url = urlparse(webhook_url)
         self.connection = http.client.HTTPSConnection(self.url.netloc)
         
-    def send(self, message):
+    def echo(self, message):
         return self._send(message)
     
     def _send(self, message):
@@ -22,14 +22,3 @@ class Sender:
 
         response = self.connection.getresponse()
         print(response.read().decode())
-
-
-if __name__ == '__main__':
-    import sys
-    _, url, *message = sys.argv
-
-    message = ' '.join(message)
-
-    print(f'Sending: {message}')
-    print(f'via: {url}')
-    print(Sender(url).send(message))
