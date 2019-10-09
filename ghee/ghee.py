@@ -10,7 +10,10 @@ class Ghee:
         self.headers = {'Content-type': 'application/json; charset=UTF-8'}
         self.url = urlparse(webhook_url)
         self.connection = http.client.HTTPSConnection(self.url.netloc)
-        
+
+    def __call__(self, message):
+        return self.echo(message)
+
     def echo(self, message):
         return self._send(message)
     
