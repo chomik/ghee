@@ -17,7 +17,8 @@ setuptools.setup(
     url='https://github.com/chomik/ghee',
     entry_points={
         'console_scripts': [
-            'ghee = ghee:main'
+            'ghee = ghee:send_via_default_config_url',
+            'custom-ghee = ghee:send_via_custom_url',
         ]
     },
     packages=setuptools.find_packages(),
