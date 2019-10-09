@@ -1,5 +1,5 @@
 name = "ghee"
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 import sys
 import pathlib
@@ -26,7 +26,7 @@ def send_via_default_config_url():
     echo = get_default()
     print(f'Sending: {message}')
     print(f'Via: {echo.url.geturl()}')
-    print(echo(message))
+    print(f'Response: {echo(message)}')
 
 
 def send_via_custom_url():
@@ -35,4 +35,4 @@ def send_via_custom_url():
     print(f'Sending: {message}')
     print(f'Via: {url}')
     echo = Ghee(url)
-    print(echo(message))
+    print(f'{echo(message)}')

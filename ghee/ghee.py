@@ -25,5 +25,9 @@ class Ghee:
 
         self.connection.request('POST', self.url.geturl(), json_data, self.headers)
 
-        response = self.connection.getresponse()
-        print(response.read().decode())
+        try:
+            response = self.connection.getresponse()
+        except http.client.ResponseNotReady:
+            return 'could not get response frome the api'
+        else:
+            return response.read().decode()
