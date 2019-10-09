@@ -1,4 +1,3 @@
-
 import http.client
 import json
 
@@ -9,7 +8,10 @@ class Ghee:
     def __init__(self, webhook_url):
         self.headers = {'Content-type': 'application/json; charset=UTF-8'}
         self.url = urlparse(webhook_url)
-        self.connection = http.client.HTTPSConnection(self.url.netloc)
+
+    @property
+    def connection(self):
+        return http.client.HTTPSConnection(self.url.netloc)
 
     def __call__(self, message):
         return self.echo(message)
